@@ -25,7 +25,7 @@ jobs:
 
     - name: Deploy
       if: success()
-      uses: PaulHinterberger/test_github_actions@{ref}
+      uses: PaulHinterberger/test_github_actions@main
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: dist/test_github_actions
