@@ -25,8 +25,8 @@ jobs:
 
     - name: Deploy
       if: success()
-      uses: PaulHinterberger/test-github-actions@v3
+      uses: PaulHinterberger/test_github_actions@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: dist/test-github-actions
+        publish_dir: dist/test_github_actions
         enable_jekyll: true
