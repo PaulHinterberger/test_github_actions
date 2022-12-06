@@ -1,0 +1,140 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title style="width: 50%; margin-top: 5px">{{exercise.number}}: {{exercise.title}}</ion-title>
+        <ion-title style="font-size: 75%;width: 50%;margin-top: 5px;margin-bottom: 5px">{{headline}}</ion-title>
+        <ion-icon (click)="redoButton()" *ngIf="tutorialCount < tutorialEndCount || currentItem === 0" name="refresh"
+                  style="position: absolute; font-size: 40px; top: 15%; right: 0%; margin-right: 1%"></ion-icon>
+
+        <ion-button *ngIf="!tutorialEnd" [hidden]="!debugMode.checkDebugMode()" color="light"  (click)="startExercise()"  size="medium" style=" position: absolute; top: 20%; right: 20%; margin-right: 1%"> Skip Tutorial</ion-button>
+        <ion-button [hidden]="!debugMode.checkDebugMode()" color="light"  (click)="skipExercise()"  size="medium" style=" position: absolute; top: 20%; right: 40%; margin-right: 1%"> Skip Exercise</ion-button>
+       
+    </ion-toolbar>
+</ion-header>
+
+<!--------------------------------------------Übung: Links-------------------------------------------------------------->
+
+<ion-content class="exerciseScreenBorder" *ngIf="tutorialCount < tutorialEndCount">
+    <div class="center">
+        <mat-grid-list class="grid" cols="2" rowHeight="fit">
+            <!--------------------------------------------Left: Vorgabescreen-------------------------------------------------------------->
+            <mat-grid-tile>
+                <mat-grid-list class="innerGrid" cols="1" rows="3" rowHeight="fit">
+                    <!-- class "borderCorrected" für korrekte Auswahl, borderSelected für Auswahl des Kindes -->
+                    <mat-grid-tile [rowspan] = "2">
+                        <img [src]="tutorialItems[0].images[0]" style="width: 70%;">
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                        <div *ngIf="tutorialCount >= 1">
+                            <img src="assets/lernverlauf/01-silben/steine-kl-GR.png" alt="steine-kl-GR"
+                                 style="position: absolute;width:60%; height: auto;left:17%; top: 0%">
+                        </div>
+                    </mat-grid-tile>
+                </mat-grid-list>
+            </mat-grid-tile>
+
+            <!--------------------------------------------Right: Aufgabescreen-------------------------------------------------------------->
+
+            <mat-grid-tile *ngIf="tutorialCount >= 2">
+                <mat-grid-list class="innerGridImageList" cols="1" rows="3" rowHeight="fit">
+                    <!-- class "borderCorrected" für korrekte Auswahl, borderSelected für Auswahl des Kindes -->
+                    <mat-grid-tile [ngClass]="checkBoxColor[0]">
+                            <img (click)="selectTutorialAnswer(0)" style="width: 80%;" [src]="tutorialItems[0].images[1]"/>
+                    </mat-grid-tile>
+
+                    <mat-grid-tile [ngClass]="checkBoxColor[1]">
+                            <img (click)="selectTutorialAnswer(1)" style="width: 80%;" [src]="tutorialItems[0].images[2]"/>
+                    </mat-grid-tile>
+
+                    <mat-grid-tile [ngClass]="checkBoxColor[2]">
+                            <img (click)="selectTutorialAnswer(2)" style="width: 80%;" [src]="tutorialItems[0].images[3]"/>
+                    </mat-grid-tile>
+
+
+                </mat-grid-list>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </div>
+    <div class="continue">
+        <app-next-page-button [hidden]="!navigateToNextPage" (Clicked)="startExercise()" ></app-next-page-button>
+    </div>
+</ion-content>
+
+<!--------------------------------------------Übung: Links-------------------------------------------------------------->
+
+<ion-content class="childScreenBorder" *ngIf="tutorialCount===tutorialEndCount">
+    <div class="center">
+        <mat-grid-list class="grid" cols="2" rowHeight="fit">
+
+            <!--------------------------------------------Left: Vorgabescreen-------------------------------------------------------------->
+
+            <mat-grid-tile>
+                <mat-grid-list class="innerGrid" cols="1" rows="3" rowHeight="fit">
+                    <!-- class "borderCorrected" für korrekte Auswahl,   für Auswahl des Kindes -->
+                    <mat-grid-tile  [rowspan] = "2">
+                        <ion-button class="imgage" (click)="playAudio(0)" color="warning" size="medium"
+                                    style="position: absolute;left: 15%; bottom: 10%; z-index: 10">
+                            <ion-icon [name]="getPlayIcon()" ></ion-icon>
+                        </ion-button>
+                        <img [src]="exerciseItems[currentItem].images[0]"
+                             style="position: relative;height: 300px; width: auto; z-index: 1">
+
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+
+                        <div *ngIf="exerciseItems[currentItem].correctSilben === '112'">
+                            <img src="assets/lernverlauf/01-silben/steine_kl-kl-GR.png" alt="steine_kl-kl-GR"
+                                 style="position: absolute;width:60%; height: auto;left:17%; top: 0%">
+                        </div>
+                        <div *ngIf="exerciseItems[currentItem].correctSilben === '21'">
+                            <img src="assets/lernverlauf/01-silben/steine-GR-kl.png" alt="steine-GR-kl"
+                                 style="position: absolute;width:60%; height: auto;left:17%;top: 0%">
+                        </div>
+                        <div *ngIf="exerciseItems[currentItem].correctSilben === '211'">
+                            <img src="assets/lernverlauf/01-silben/steine-GR-kl-kl.png" alt="steine-GR-kl-kl"
+                                 style="position: absolute;width:60%; height: auto;left:17%;top: 0%">
+                        </div>
+                        <div *ngIf="exerciseItems[currentItem].correctSilben === '12'">
+                            <img src="assets/lernverlauf/01-silben/steine-kl-GR.png" alt="steine-kl-GR"
+                                 style="position: absolute;width:60%; height: auto;left:17%;top: 0%">
+                        </div>
+                        <div *ngIf="exerciseItems[currentItem].correctSilben === '121'">
+                            <img src="assets/lernverlauf/01-silben/steine-kl-GR-kl.png" alt="steine-kl-GR-kl"
+                                 style="position: absolute;width:60%; height: auto;left:17%;top: 0%">
+                        </div>
+                    </mat-grid-tile>
+
+
+                </mat-grid-list>
+            </mat-grid-tile>
+            <!--------------------------------------------Right: Aufgabescreen-------------------------------------------------------------->
+
+
+            <mat-grid-tile>
+                <mat-grid-list class="innerGridImageList" cols="1" rows="3" rowHeight="fit">
+                    <!-- class "borderCorrected" für korrekte Auswahl, borderSelected für Auswahl des Kindes -->
+                    <mat-grid-tile [ngClass]="checkBoxColor[0]" >
+                            <img (click)="selectAnswer(0)" style="width: 80%;" [src]="exerciseItems[currentItem].images[1]"/>
+                    </mat-grid-tile>
+
+
+                    <mat-grid-tile [ngClass]="checkBoxColor[1]">
+                            <img (click)="selectAnswer(1)" style="width: 80%;" [src]="exerciseItems[currentItem].images[2]"/>
+                    </mat-grid-tile>
+
+
+                    <mat-grid-tile [ngClass]="checkBoxColor[2]" >
+                        <img (click)="selectAnswer(2)" style="width: 80%;" [src]="exerciseItems[currentItem].images[3]"/>
+                    </mat-grid-tile>
+
+                </mat-grid-list>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </div>
+    <ion-button class="imgage" (click)="playAudio(1)" color="warning" size="medium"
+        style="z-index: 35; position: absolute; right: 31%; bottom: 6%">
+        <ion-icon [name]="getPlayIcon()"></ion-icon>
+    </ion-button>
+    <div class="continue">
+        <app-next-page-button [hidden]="!navigateToNextPage" (Clicked)="nextItem()"></app-next-page-button>
+    </div>
+</ion-content>

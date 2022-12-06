@@ -1,0 +1,32 @@
+<ion-content class="examinerScreenBorder" padding>
+    <div>
+        
+        <h1>Auswertung {{title}} </h1>
+        <p>Anzahl richtiger Antworten: {{result10?.sumCorrect}}</p>
+        <app-next-page-button (Clicked)="nextPage()"></app-next-page-button>
+        <ion-button style="position: sticky" (click)="this.data.sendTest()" [disabled]="this.data.triedToSend" class="sendTestBtn" color="success">Testung abschicken &nbsp;
+            <ion-icon name="cloud-upload"> </ion-icon>
+        </ion-button>
+    </div>
+    <div class="table-wrapper-scroll-y my-custom-scrollbar" style="width: 100%; top: 9%">
+
+        <table class="table table-bordered table-striped mb-0" style="text-align: left;">
+            <thead>
+            <tr>
+                <th>Durchgang</th>
+                <th>Wort</th>
+                <th>Korrekt</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let answer of result10?.answers">
+                    <td>{{answer.number}}</td>
+                    <td>{{answer.word}}</td>
+                    <td>{{answer.correct}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+<app-next-page-button (Clicked)="nextPage()"></app-next-page-button>
+</ion-content>

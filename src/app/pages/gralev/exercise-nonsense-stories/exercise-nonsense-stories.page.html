@@ -1,0 +1,97 @@
+<ion-header>
+  <ion-toolbar *ngIf="textCounter > 0 && textCounter < 2 || textCounter > 2">
+    <ion-title style="width: 50%;margin-top: 5px">Textebene 1</ion-title>
+    <ion-title style="font-size: 100%; width: 100%;margin-top: 5px; margin-bottom: 5px">
+      Lies die Geschichte und beantworte die Fragen.
+    </ion-title>
+    <div *ngIf="false" style=" position: absolute; top: 20%; right: 0%; margin-right: 1%; font-size: 150%">
+      {{getRemainingTime()}}
+    </div>
+  </ion-toolbar>
+  <!--<div class="basic-container">
+      <mat-progress-bar mode="determinate" [value]="progressbarValue"></mat-progress-bar>
+  </div>-->
+</ion-header>
+
+<ion-content>
+  
+  <div class="left">
+      <mat-grid-list class="grid" cols="1" rowHeight="fit" *ngIf="words && words[wordCount]">
+        <div *ngIf="textCounter === 0 || textCounter === 2">
+          <mat-grid-tile *ngIf="textCounter === 0" style="font-size: 130%;">
+            Wir machen nun ein Spiel mit Quatschgeschichten. <br>
+            Du siehst immer eine kurze Geschichte zu irgendetwas, das es eigentlich nicht gibt – z.B. eine Tätigkeit, ein Tier.  <br>
+            Zu jeder Geschichte gibt es 2 Fragen. <br>
+            Wähle bei jeder Frage aus den vier Antworten die richtige aus. <br>
+            <br>
+            Probiere es einfach. Es kommen jetzt zwei Beispiele. <br>
+            Wenn du dir bei einer Frage nicht sicher bist, nimm die Antwort, die deiner Meinung nach am besten passt.<br>
+            Wenn du Hilfe brauchst, frag noch einmal nach.
+
+          </mat-grid-tile>
+          <mat-grid-tile *ngIf="textCounter === 2" style="font-size: 130%;">
+            Toll gemacht. Wenn du dich jetzt noch nicht auskennst, dann frag bitte noch einmal nach.<br>
+            Keine Fragen mehr? Dann kannst du gleich loslegen.<br>
+            Du hast jetzt {{timeLim}} Minuten Zeit für die nächsten Seiten. Wenn die Zeit vorbei ist, dann hört das Spiel automatisch auf.
+          </mat-grid-tile>
+        </div>  
+        <div *ngIf="textCounter > 0 && textCounter < 2 || textCounter > 2">
+            <!-- 2.+3. Spalte alle Zeilen Vorgabebild (z.B. Nase) -->
+            
+            <mat-grid-tile rowspan="25" style="border-bottom: 2px black solid;">
+                <div style="font-size: 110%; margin: 5%;">
+                  {{words[wordCount].history}}
+                </div>
+            </mat-grid-tile>
+
+            <mat-grid-tile rowspan="4"></mat-grid-tile>
+
+            <mat-grid-tile rowspan="10" style="border-bottom: 2px black solid; max-width: 35%;">
+              <div
+              style="font-size: 120%; position: absolute; left: 5px;">
+                Was steht in der Geschichte?
+              </div>
+            </mat-grid-tile>
+            <!--<mat-grid-tile colspan="4" rowspan="50">
+
+            </mat-grid-tile>-->
+
+            <mat-grid-tile *ngFor="let word of words[wordCount].answers1,let i = index"
+                [ngClass]="checkBoxColor1[i]" rowspan="8">
+                <div
+                    (click)="selectAnswer(i, 0)"
+                    style="font-size: 120%; position: absolute; left: 5px;">
+                    {{word}}
+                </div>
+            </mat-grid-tile>
+
+            <mat-grid-tile rowspan="4"></mat-grid-tile>
+
+            <mat-grid-tile rowspan="10" style="border-bottom: 2px black solid; max-width: 35%;">
+              <div style="font-size: 120%; position: absolute; left: 5px;">
+                Was steht in der Geschichte?
+              </div>
+            </mat-grid-tile>
+
+            <mat-grid-tile *ngFor="let word of words[wordCount].answers2,let i = index"
+                [ngClass]="checkBoxColor2[i]" rowspan="8">
+                <div
+                    (click)="selectAnswer(i, 1)"
+                    style="font-size: 120%; position: absolute; left: 5px;">
+                    {{word}}
+                </div>
+            </mat-grid-tile>
+
+            <mat-grid-tile rowspan="8"></mat-grid-tile>
+          </div>
+      </mat-grid-list>
+  </div>
+
+  <div class="continue">
+    <ion-button size="small" color="dark" style="float:right;" (click)="check()" [disabled]="isDisabled()">
+      <ion-icon name="checkmark"></ion-icon>
+    </ion-button>
+  </div>
+
+
+</ion-content>

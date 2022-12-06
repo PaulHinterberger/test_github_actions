@@ -1,0 +1,52 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Wort Schreiben : Auswertung</ion-title>
+        <p style="margin-left: 20px"> Richtig: {{getRight()}} Falsch:{{getFalse()}} Noch nicht bewertet:{{getUncorrected()}}</p>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="examinerScreenBorder">
+    <table style="width:100%">
+        <tr>
+            <th>Korrekte Antwort</th>
+            <th>Kind Antwort</th>
+            <th>Richtig</th>
+            <th>Falsch</th>
+        </tr>
+        <tr *ngFor="let png of exercise.pngs; let i = index">
+            <th>{{words[i]}}</th>
+            <th width="600"><img [src]="png" height="100" width="500" align=center/></th>
+            <th (click)="this.correct(true, i)"
+                [style.background-color]="this.exer.dict[words[i]] === true ? 'lightgreen' : ''">
+                <mat-icon>check</mat-icon>
+                <!-- <ion-icon name="checkmark-outline"></ion-icon> -->
+            </th>
+            <th (click)="this.correct(false, i)"
+                [style.background-color]="this.exer.dict[words[i]] === false ? 'pink' : ''">
+                <mat-icon>close</mat-icon>
+                <!-- <ion-icon name="close-outline"></ion-icon> -->
+            </th>
+        </tr>
+    </table>
+    <ion-button (click)="nextPage()" class="btn" color="success" size="large">
+        Fertig
+    </ion-button>
+    <!--<mat-grid-list cols="1" rowHeight="33%">
+        <mat-grid-tile *ngFor="let png of exercise.pngs; let i = index">
+            <img [src]="png"/>
+                <ion-button mat-icon-button (click)="correct(true, i);" class="btn buttonRight" size="large" style="color:greenyellow">
+                    <mat-icon>check</mat-icon>
+                </ion-button>
+                <ion-button mat-icon-button (click)="correct(false, i);" class="btn buttonLeft" size="large" style="color:red">
+                    <mat-icon>close</mat-icon>
+                </ion-button>
+            <p>{{exercise.corrects[i]}}</p>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <ion-button (click)="nextPage()" class="btn" color="success" size="large">
+                Fertig
+            </ion-button>
+        </mat-grid-tile>
+    </mat-grid-list>-->
+
+</ion-content>

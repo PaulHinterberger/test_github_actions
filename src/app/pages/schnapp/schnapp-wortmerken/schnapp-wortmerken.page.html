@@ -1,0 +1,97 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title style="width: 50%;margin-top: 5px">Kapitel {{exercise.number}}: {{exercise.title}}</ion-title>
+    <ion-title style="color: darkred;font-size: 75%;width: 50%;margin-top: 5px; margin-bottom: 5px;">Das Kind darf die
+      Wörter nur einmal hören!
+    </ion-title>
+    <ion-button [hidden]="!debugMode.checkDebugMode()" color="light" (click)="skipExercise()"  size="medium" style=" position: absolute; top: 20%; right: 40%; margin-right: 1%"> Skip Exercise</ion-button>
+    <!--        <ion-icon (click)="changeCardActive()" name="create" style="position: absolute; top: 10%; right: 8%"></ion-icon>-->
+    <!--        <ion-icon (click)="resetAudio()" name="refresh" style=" position: absolute; top: 10%; right: 0%; margin-right: 1%"></ion-icon>-->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="examinerScreenBorder" style="position: absolute;" padding>
+
+
+  <app-note [exercise]=exercise [isCardActive]=isCardActive></app-note>
+
+
+  <div class="center">
+    <mat-grid-list class="grid" cols="2" rowHeight="fit">
+
+      <mat-grid-tile>
+
+        <mat-grid-list class="grid" cols="2" rowHeight="fit">
+          <mat-grid-tile [rowspan]="2">
+            <ion-button (click)="playAudio()" color="warning" size="large">
+              <ion-icon [name]="getPlayIcon()" style="font-size: 250%"></ion-icon>
+            </ion-button>
+          </mat-grid-tile>
+          <mat-grid-tile></mat-grid-tile>
+          <mat-grid-tile>
+            <h2 style="color: gray">Wiederholung</h2>
+          </mat-grid-tile>
+          <span *ngFor="let word of words">
+                  <mat-grid-tile>
+                    <ion-button (click)="add(word)" color="success" style="width: 90%;left:10%">{{word}}</ion-button>
+                  </mat-grid-tile>
+                  <mat-grid-tile>
+                    <mat-checkbox [checked]="getCheckBox(word)" [disabled]="true" style="color:primary"></mat-checkbox>
+                  </mat-grid-tile>
+                </span>
+          <mat-grid-tile>
+            <ion-button (click)="add('Falsch')" color="danger" size="large" style="width: 90%;left:10%">
+              Falsch
+            </ion-button>
+          </mat-grid-tile>
+        </mat-grid-list>
+
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+
+        <mat-grid-list class="grid" cols="4" rowHeight="fit">
+          <mat-grid-tile [colspan]="4">
+            <h2 style="color: gray">
+              Protokoll
+            </h2>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="4" [rowspan]="8">
+            <div id="container-border">
+              <mat-grid-list cols="4" id="protocolGrid" rowHeight="fit">
+                      <span *ngFor="let protocolWord of protocol, let i = index">
+                        <mat-grid-tile>
+                            <h4 *ngIf="!protocolWord.includes('EMPTY')" style="color: gray">{{i + 1}}
+                              .{{protocolWord}}</h4>
+                        </mat-grid-tile>
+                        <mat-grid-tile>
+                            <ion-button (click)="removeWord(i, protocolWord)" *ngIf="!protocolWord.includes('EMPTY')"
+                                        mat-icon-button><ion-icon name="close"
+                                                                  style="font-size: 100%"></ion-icon></ion-button>
+                        </mat-grid-tile>
+                      </span>
+              </mat-grid-list>
+            </div>
+          </mat-grid-tile>
+          <mat-grid-tile [colspan]="4">
+            <h5 style="color: gray">Auswertung</h5>
+          </mat-grid-tile>
+          <span style="color: gray">
+                  <mat-grid-tile [colspan]="3"><h6 class="evaluationArea">Anzahl richtig:</h6></mat-grid-tile>
+                  <mat-grid-tile><h6>{{exercise.sumCorrect}}</h6></mat-grid-tile>
+                  <mat-grid-tile [colspan]="3"><h6 class="evaluationArea">Anzahl Wiederholungen: </h6></mat-grid-tile>
+                  <mat-grid-tile><h6 style="top:0%;">{{exercise.sumRepetitions}}</h6></mat-grid-tile>
+                  <mat-grid-tile [colspan]="3"><h6 class="evaluationArea">Anzahl falsch:</h6></mat-grid-tile>
+                  <mat-grid-tile><h6>{{exercise.sumFalse}}</h6></mat-grid-tile>
+                </span>
+
+        </mat-grid-list>
+
+      </mat-grid-tile>
+
+    </mat-grid-list>
+  </div>
+  <div class="continue">
+      <app-next-page-button [Enabled]="exerciseStarted" (Clicked)="nextPage()" ></app-next-page-button>
+  </div>
+</ion-content>

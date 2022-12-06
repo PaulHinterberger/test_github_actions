@@ -1,0 +1,45 @@
+@import '../lernverlauf.scss';
+
+.continue{
+  bottom: 1.25%;
+  margin-bottom: 5px;
+  position: absolute;
+  width: 92%;
+  left: 5%;
+  right: 5%;
+  z-index: 30;
+}
+
+.fill{
+  height: 90%; width: 25%;
+}
+
+.fillt{
+  height: 95%; width: 40%;
+  background-color: white;
+}
+
+.stone {
+  position: absolute;
+  z-index: 2;
+}
+
+.innerGrid {
+  height: 100%;
+  position: absolute;
+  // margin-left: 20%;
+  top: 50%;
+  width: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.innerGridImageList {
+  height: 100%;
+  position: absolute;
+  // margin-left: 20%;
+  top: 50%;
+  width: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

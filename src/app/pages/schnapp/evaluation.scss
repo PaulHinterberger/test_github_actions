@@ -1,0 +1,92 @@
+.stop-testing-bt {
+  bottom: 1.5%;
+  position: absolute;
+  left: 5%;
+}
+
+.stairs{
+  width: 50vw;
+  height: 12vh;
+  margin-top: 15vh;
+  z-index: 1;
+}
+
+.smileys{
+  height: 11vh;
+  width: auto;
+  position: absolute;
+  z-index: 3;
+}
+
+.borderSelected {
+  border: 5px solid #4b7fd9;
+  border-radius: 10px;
+}
+
+.baseLayer{
+  z-index: 1;
+}
+
+.upperLayer{
+  z-index: 3;
+}
+
+.note-ok-bt {
+  bottom: 1.5%;
+  position: absolute;
+  right: 5%;
+}
+
+mat-form-field {
+  font-size: 80%;
+  top: 1em;
+  left: -15%;
+}
+
+.evaluationHeadLine {
+  font-size: 200%;
+  margin-bottom: 2%;
+}
+
+.text-tileResult {
+  position: absolute;
+  text-align: left;
+  left: 20%;
+}
+
+.text-tile {
+  position: absolute;
+  text-align: left;
+  right: 20%;
+}
+
+#grid {
+  height: 60%;
+  position: absolute;
+  // margin-left: 20%;
+  top: 50%;
+  width: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.form-field {
+  font-size: 1.75vw;
+  width: 60%;
+  left: 10%;
+}
+.white-border{
+  position: absolute;
+  left:0%;
+  top:0%;
+  background-color: white; 
+  border-radius: 0px 0px 50px 0px;
+  width: 50%;
+}
+.header-box{
+  position: absolute;
+  top: 0%;
+  left:0%;
+  width: 95%;
+  z-index: 1;
+}

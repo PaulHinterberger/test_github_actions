@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title style="width: 50%;margin-top: 5px">Kapitel {{exercise.number}}: {{exercise.title}}</ion-title>
+    <ion-title style="font-size: 75%;width: 50%;margin-top: 5px; margin-bottom: 5px">{{getSubtitle()}}</ion-title>
+    <ion-button [hidden]="!debugMode.checkDebugMode()" color="light" (click)="skipExercise()"  size="medium" style=" position: absolute; top: 20%; right: 40%; margin-right: 1%"> Skip Exercise</ion-button>
+    <ion-icon *ngIf="currentItem === 0" (click)="resetAudio()" name="refresh"
+              style=" position: absolute; top: 10%; right: 0%; margin-right: 1%"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [ngClass]="{'exerciseScreenBorder': isExercise(), 'childScreenBorder': !isExercise()}">
+
+
+  <div class="center">
+    <mat-grid-list cols="4" id="grid" rowHeight="fit">
+
+      <mat-grid-tile [colspan]="2" [rowspan]="2">
+        <ion-button (click)="playAudio()" color="warning" style="height: 30%; width: 20%;">
+          <ion-icon [name]="getIcon()" style="font-size: 450%"></ion-icon>
+        </ion-button>
+      </mat-grid-tile>
+      <mat-grid-tile [colspan]="2" [rowspan]="2">
+        <img [src]="getImg()" style="position: relative;left:5%;height: 20vw;width: auto;">
+      </mat-grid-tile>
+
+      <mat-grid-tile [ngClass]="checkBoxStyles[0]">
+        <img (click)="enterResult(1)" src="assets/schnapp/schnapp-silben/images/klatschendehaende.png">
+      </mat-grid-tile>
+
+      <mat-grid-tile [ngClass]="checkBoxStyles[1]">
+        <img (click)="enterResult(2)" src="assets/schnapp/schnapp-silben/images/2klatschendehaende.png">
+      </mat-grid-tile>
+
+      <mat-grid-tile [ngClass]="checkBoxStyles[2]">
+        <img (click)="enterResult(3)" src="assets/schnapp/schnapp-silben/images/3klatschendehaende.png">
+      </mat-grid-tile>
+
+      <mat-grid-tile [ngClass]="checkBoxStyles[3]">
+        <img (click)="enterResult(4)" src="assets/schnapp/schnapp-silben/images/4klatschendehaende.png">
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+
+  <div class="continue">
+    <app-last-page-button (Clicked)="lastPage()" [Visible]="currentItem > 3 && this.back === false"></app-last-page-button>
+    <app-next-page-button (Clicked)="nextPage()" [Enabled]="nextPageAllowed()"></app-next-page-button>
+
+  </div>
+</ion-content>

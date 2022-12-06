@@ -1,0 +1,52 @@
+mat-grid-tile {
+  //border: solid 1px grey;
+}
+
+
+.borderExample {
+  border: 5px solid #1FC930;
+  border-radius: 10px;
+}
+.borderSelected {
+  border: 5px solid #4b7fd9;
+  border-radius: 10px;
+  background-color: #FFFFFF77;
+}
+
+.borderCorrected {
+  background-color: #FFFFFF77;
+  border: 5px solid #1FC930;
+  border-radius: 10px;
+}
+
+
+
+.grid {
+  height: 90%;
+  position: absolute;
+  // margin-left: 20%;
+  top: 50%;
+  width: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+/**button:hover {
+  border: 6px solid blue;
+  font-weight: 800;
+  background-color: white;
+  margin: 0;
+}**/
+
+
+//for next Page button
+.continue{
+  bottom: 1.25%;
+  margin-bottom: 5px;
+  position: absolute;
+  width: 90%;
+  left: 5%;
+  right: 5%;
+  z-index: 30;
+}

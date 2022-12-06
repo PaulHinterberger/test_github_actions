@@ -1,0 +1,254 @@
+<ion-content onload="onClick" [class]="mapCssClass" padding>
+  <div *ngIf="state == 'lichtung-ziehen' || state == 'lichtung-kobolde'" class="container">
+    <div *ngIf="state == 'lichtung-ziehen'" class="firstContainer">
+      <div style="height: 30vh; width: 40vw" cdkDropList #startList="cdkDropList"
+           [cdkDropListData]="startArea"
+           [cdkDropListConnectedTo]="[finalList,middleList]"
+           (cdkDropListDropped)="drop($event)" class="row">
+        <div *ngIf="state == 'lichtung-wegweiser'">
+          <img
+            style="height: 30vh; width: 40vw; position: absolute;top: 0vh;left: 0vw;animation: popUp 20s;animation-fill-mode: forwards;"
+            #img *ngFor="let element of startArea" [src]="getImg()" cdkDrag>
+        </div>
+        <div *ngIf="state == 'lichtung-ziehen'">
+          <img style="height: 30vh; width: 40vw;" #img *ngFor="let element of startArea" [src]="getImg()" cdkDrag>
+        </div>
+        <div *ngIf="startArea.length === 0">
+         
+        </div>
+      </div>
+    </div>
+    <div class="secondContainer">
+      <div style="height: 30vh; width: 40vw" cdkDropList #middleList="cdkDropList"
+           [cdkDropListData]="middleArea"
+           [cdkDropListConnectedTo]="[startList,finalList]"
+           (cdkDropListDropped)="drop($event)" class="row">
+        <img style="height: 30vh; width: 60vw" #img *ngFor="let element of middleArea" [src]="getImg()" cdkDrag>
+        <div *ngIf="middleArea.length === 0">
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="thirdContainer">
+      <div style="height: 30vh; width: 40vw" cdkDropList #finalList="cdkDropList"
+           [cdkDropListData]="finalArea"
+           [cdkDropListConnectedTo]="[startList,middleList]"
+           (cdkDropListDropped)="drop($event)" class="row">
+        <img style="height: 30vh; width: 60vw" #img *ngFor="let element of finalArea" [src]="getImg()" cdkDrag>
+        <div *ngIf="finalArea.length === 0">
+      
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="state == '11a' || state == 'labyrinth-durchziehen'" class="containerForLab">
+    <div class="firstContainerLab">
+      <div style="height: 30vh; width: 40vw" cdkDropList #startList="cdkDropList"
+           [cdkDropListData]="startArea"
+           [cdkDropListConnectedTo]="[finalList,middleList]"
+           (cdkDropListDropped)="drop($event)" class="row">
+        <img style="position: absolute; left: 30%;height: 30vh; width: 60vw;border: none" #img *ngFor="let element of startArea"
+             [src]="getImg()" cdkDrag>
+        <div *ngIf="startArea.length === 0">
+          
+        </div>
+      </div>
+    </div>
+    <div class="secondContainerLab">
+      <div style="height: 30vh; width: 40vw" cdkDropList #middleList="cdkDropList"
+           [cdkDropListData]="middleArea"
+           [cdkDropListConnectedTo]="[startList,finalList]"
+           (cdkDropListDropped)="drop($event)" class="row">
+        <img style="position: absolute; left: 30%;height: 30vh; width: 60vw" #img *ngFor="let element of middleArea"
+             [src]="getImg()" cdkDrag>
+        <div *ngIf="middleArea.length === 0">
+         
+        </div>
+      </div>
+    </div>
+
+    <div class="thirdContainerLab">
+      <div style="height: 30vh; width: 40vw" cdkDropList #finalList="cdkDropList"
+           [cdkDropListData]="finalArea"
+           [cdkDropListConnectedTo]="[startList,middleList]"
+           (cdkDropListDropped)="drop($event)" class="row">
+        <img style="position: absolute; left: 30%;height: 30vh; width: 60vw" #img *ngFor="let element of finalArea"
+             [src]="getImg()" cdkDrag>
+        <div *ngIf="finalArea.length === 0">
+          
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div *ngIf="state == 'berge-steine' || state == 'berge-berggeist'"
+       class="containerForBerg">
+    <div *ngIf=" state == 'berge-bruecke'" class="firstContainerBerg">
+      <div style="height: 30vh; width: 40vw" cdkDropList #startList="cdkDropList"
+           [cdkDropListData]="startArea"
+           [cdkDropListConnectedTo]="[finalList,middleList,thirdList,finalList2]"
+           (cdkDropListDropped)="drop($event)" class="row">
+        <img style="position: absolute; left: 35%; top: 30%; height: 20vh; width: 30vw" #img
+             *ngFor="let element of startArea" [src]="getImg()" cdkDrag>
+        <div *ngIf="startArea.length === 0">
+          
+        </div>
+      </div>
+    </div>
+    <div class="secondContainerBerg">
+      <div style="height: 30vh; width: 40vw" cdkDropList #middleList="cdkDropList"
+           [cdkDropListData]="middleArea"
+           [cdkDropListConnectedTo]="[startList,finalList,thirdList,finalList2]"
+           (cdkDropListDropped)="drop($event)" class="row">
+        <img style="position: absolute; left: 35%; top: 30%;height: 20vh; width: 30vw" #img
+             *ngFor="let element of middleArea" [src]="getImg()" cdkDrag>
+        <div *ngIf="middleArea.length === 0">
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="thirdContainerBerg">
+      <div style="height: 30vh; width: 40vw" cdkDropList #thirdList="cdkDropList"
+           [cdkDropListData]="thirdArea"
+           [cdkDropListConnectedTo]="[startList,middleList,finalList,finalList2]"
+           (cdkDropListDropped)="drop($event)" class="row">
+        <img style="position: absolute; left: 35%; top: 30%; height: 25vh; width: 60vw" #img
+             *ngFor="let element of thirdArea" [src]="getImg()" cdkDrag>
+        <div *ngIf="thirdArea.length === 0">
+         
+        </div>
+      </div>
+    </div>
+
+    <div class="fourthContainerBerg">
+      <div style="height: 30vh; width: 40vw" cdkDropList #finalList="cdkDropList"
+           [cdkDropListData]="finalArea"
+           [cdkDropListConnectedTo]="[startList,middleList,thirdList,finalList2]"
+           (cdkDropListDropped)="drop($event)" class="row">
+        <img style="position: absolute; left: 35%; top: 30%;height: 30vh; width: 60vw" #img
+             *ngFor="let element of finalArea" [src]="getImg()" cdkDrag>
+        <div *ngIf="finalArea.length === 0">
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="fifthContainerBerg">
+      <div style="height: 30vh; width: 40vw" cdkDropList #finalList2="cdkDropList"
+           [cdkDropListData]="finalArea2"
+           [cdkDropListConnectedTo]="[startList,middleList,thirdList,finalList]"
+           (cdkDropListDropped)="drop($event)" class="row">
+        <img style="position: absolute; left: 23%; top: 30%;height: 30vh; width: 60vw" #img
+             *ngFor="let element of finalArea2" [src]="getImg()" cdkDrag>
+        <div *ngIf="finalArea2.length === 0">
+         
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <img *ngIf="state == 'lichtung-wegweiser'"  class="schwupp">
+
+  <img *ngIf="state == 'labyrinth-start' "src="assets/animations/drache_luchs_gespiegelt.gif" class="luchs">
+
+  <div *ngIf="middleArea.length === 0">
+    <img *ngIf="state == 'lichtung-ziehen'" id="circlewWood2" src="assets/animations/circle2.gif">
+  </div>
+
+  <div *ngIf="finalArea.length === 0">
+    <img *ngIf="state == 'lichtung-kobolde'" id="circlewWood" src="assets/animations/circle2.gif">
+  </div>
+
+  <div *ngIf="finalArea.length === 0">
+    <img *ngIf="state == 'labyrinth-durchziehen'" id="circleLab" src="assets/animations/circle2.gif">
+  </div>
+
+  <!-- <div *ngIf="middleArea.length === 0">
+    <img *ngIf="state == 'berge-bruecke'" id="circleBerg2" src="assets/animations/circle2.gif">
+  </div> -->
+
+  <div *ngIf="thirdArea.length === 0">
+    <img *ngIf="state == 'berge-steine'" id="circleBerg2" src="assets/animations/circle2.gif">
+  </div>
+
+  <div *ngIf="finalArea.length === 0 ">
+    <img *ngIf="state == 'berge-berggeist'" id="circleBerg3" src="assets/animations/circle2.gif">
+  </div>
+
+  <!-- <div *ngIf="finalArea2.length === 0 ">
+    <img *ngIf="state == 'berge-schatz'" id="circleBerg4" src="assets/animations/circle2.gif">
+  </div> -->
+
+  <div *ngIf="state == 'lichtung-wegweiser'" [hidden]='!isNextButtonDisabled()' class="wegweiser"></div>
+
+  <div *ngIf="state == 'lichtung-wegweiser' && !isNextButtonDisabled()" class="wegweiserAway"></div>
+
+  <div class="spinner" *ngIf="state == 'lichtung-ziehen' && middleArea.length === 1">
+    <img class="scaler" src="assets/animations/Kobold.gif" style="width: 200px; height: auto">
+  </div>
+  <div class="spinner2" *ngIf="state == 'lichtung-ziehen' && middleArea.length === 1">
+    <img class="scaler2" src="assets/animations/Koboldmaedchen.gif" style="width: 150px; height: auto">
+  </div>
+
+  <div class="spinner3" *ngIf="state == 'lichtung-kobolde' ">
+    <img class="scaler3" src="assets/animations/Kobold.gif" style="width: 400px; height: auto; z-index: 0;">
+  </div>
+  <div class="spinner4" *ngIf="state == 'lichtung-kobolde' ">
+    <img class="scaler4" src="assets/animations/Koboldmaedchen.gif" style="width: 330px; height: auto; z-index: 0;">
+  </div>
+
+  <div *ngIf="state == 'berge-berggeist' && finalArea.length === 1" class="berggeist"></div>
+
+
+  <div *ngIf="state == 'berge-bruecke'" class="imageDrache2"></div>
+
+  <div *ngIf="state == 'berge-berggeist' && finalArea.length === 0" class="steineSchatz"></div>
+
+  <div *ngIf="state == 'berge-berggeist' && finalArea.length === 1" class="steineSchatzGetDown"></div>
+
+  <div *ngIf="state == 'berge-start' || state == 'berge-stampfen' || state == 'berge-bruecke' || state == 'berge-steine'" class="steine"></div>
+
+  <div *ngIf="state == 'berge-start' || state == 'berge-stampfen' || state == 'berge-bruecke' || state == 'berge-steine'" class="steineSchatz"></div>
+
+  <div *ngIf="state == 'berge-berggeist'" class="steineFadeOut"></div>
+
+  <div *ngIf="state == 'berge-schatz'" class="berggeistOpacity"></div>
+
+  <div *ngIf="state == 'berge-schatz'" class="imageDrache"></div>
+
+  <img *ngIf="state == 'berge-stampfen'" style="position: absolute; height: 150px; width: auto; left: -2%; top: 3%;
+          animation: schrittFuerSchritt 0.5s infinite alternate;"
+       src="assets/animations/stampfen_langsamer.gif">
+
+  <img *ngIf="state == 'berge-start'" style="position: absolute; height: 190px; width: auto; left: 15%; top: 12%;"
+       src="assets/animations/Drache.gif">
+
+
+  <div *ngIf="this.state === 'geschafft'">
+    <div class="tracking-in-expand-fwd">
+      <h2 style="color: #ffd410">Geschafft!</h2>
+    </div>
+    <img src="assets/animations/schatzZoom.png" style="position: fixed;width:400%; height:auto; top: 60%; left: 80%">
+    <img src="assets/animations/dracheKopf.gif" style="position: fixed;width:300%; height:auto; top: 60%; left: 60%">
+    <img src="assets/animations/feuerwerk.gif" style="position: fixed;width:600px; height:auto; top: 5%;left:5%">
+    <img src="assets/animations/feuerwerk.gif" style="position: fixed;width:600px; height:auto; top: 5%;left:95%">
+    <img class="fadeElementOut" src="assets/animations/feuerwerk.gif"
+         style="width:600px; height:auto; bottom: auto; left: 10%; position: fixed;">
+    <img class="fadeElementOut" src="assets/animations/feuerwerk.gif"
+         style="width:600px; height:auto; bottom: auto; left: 90%; position: fixed;">
+    <img class="fadeElementOut" src="assets/animations/feuerwerk.gif"
+         style="position: fixed;width:600px; height:auto; bottom: auto; top: 5%">
+  </div>
+  <div class="continue" style="position: absolute; left: 10%">
+    <ion-button class="button button-clear" (click)="goToNextPage()" style="position: absolute; bottom: 60%;
+         left: 70%; height: 80px; z-index: 10" [hidden]='isNextButtonDisabled()'>
+      <!-- <ion-img *ngIf="state == 'lichtung-wegweiser'" style="width: 300px; height: 300px; position: absolute; top: 17%; left: 14%;" 
+        src="assets/animations/wegweiser.png"></ion-img> -->
+      <ion-img id="holz" style="height: 150px; width: auto;" src="assets/animations/holzmitpfeil1.png"></ion-img>
+    </ion-button>
+  </div>
+</ion-content>

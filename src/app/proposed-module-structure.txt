@@ -1,0 +1,37 @@
+app
+	- classes
+	- common-components
+		- header-component
+		- last-page-button
+		- next-page-button
+		- note
+		- exercise-finished-page (super, app-note, exit test run)
+	- pages
+		- home
+			- result-view (sub-component)
+			- data-entry-main
+			- data-entry-anamnese
+			- data-entry-grawo
+		- schnapp
+			- map (??)
+			- buchstabenwissen
+			- anlaute-erkennen
+			- wortmerken
+			- zahlen-buchstaben-nachsprechen-vw
+			- zahlen-buchstaben-nachsprechen-rw
+			- ....
+			- grawo
+				- grawo-summary
+		- lernverlauf 
+			- map (??)
+			- silben-f0
+			- silben-f1
+			- silben-f2
+			- silben-f3
+			- silben-f4
+			- lesen
+			- schreiben
+				- schreiben-evaluation
+		- gralev
+			- ...?
+	- services

@@ -1,0 +1,79 @@
+
+.cdk-drag-preview{
+  //background: white;
+}
+.cdk-drag-placeholder{
+  opacity: 0;
+}
+
+.cdkdrag-animating{
+  transition: transform 250ms cubic-bezier(0,0,0.2,1);
+}
+
+mat-grid-tile {
+  //border: solid 1px grey;
+}
+
+mat-grid-list {
+  //border: solid 1px lightcoral;
+}
+.toolbox {
+  //min-height : 150px;
+  //min-width: 150px;
+  display:flex;
+  flex-direction: row;
+  background-color:rgba(0, 0, 0, 0);
+  //border: solid 1px black;
+}
+
+.droplist {
+  //min-height : 150px;
+  //min-width: 150px;
+  display:flex;
+  flex-direction: row;
+  background-color:rgba(0, 0, 0, 0);
+
+}
+
+.item-dropped {
+  border-bottom: 5px solid black;
+  border-radius: 100em / 50em;
+  background-color:rgba(255, 255, 255, 0.3);
+  //background: white;
+}
+
+.item-to-drop {
+  //border: 2px solid black;
+  border-radius: 100em / 50em;
+  background-color:rgba(255, 255, 255, 0.3);
+  border-bottom: 5px solid black;
+  
+}
+
+.item-invisible {
+  background-color:rgba(0, 0, 0, 0);
+}
+
+img.moveBigStone {
+  animation: moverBig 4s;
+  animation-fill-mode: forwards;
+  animation-delay: 16s;
+  z-index: 10;
+}
+
+@keyframes moverBig {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(210px) translateX(-25px) scale(1.7);}
+}
+
+img.moveSmallStone {
+  animation: moverSmall 4s;
+  animation-fill-mode: forwards;
+  animation-delay: 18s;
+  z-index: 10;
+}
+
+@keyframes moverSmall {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(210px) translateX(45px) scale(1.8);}
+}

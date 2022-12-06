@@ -1,0 +1,42 @@
+@import 'src/app/pages/schnapp/exercise.scss';
+@import 'src/app/pages/schnapp/evaluation.scss';
+
+ion-icon {
+  font-size: 400%;
+}
+
+.grid {
+  height: 90%;
+  position: absolute;
+  // margin-left: 20%;
+  top: 50%;
+  width: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.evaluationArea {
+  left: 0%;
+  position: absolute;
+  top: 0%;
+}
+
+#container-border {
+  width: 90%;
+  height: 100%;
+  border: 3px solid gray;
+  position: absolute;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+
+#protocolGrid {
+  height: 100%;
+  position: absolute;
+  // margin-left: 20%;
+  top: 50%;
+  width: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

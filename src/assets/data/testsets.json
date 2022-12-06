@@ -1,0 +1,308 @@
+[{
+  "id": "5d08eed1172f3900011c0ffe",
+  "title": "Schnapp 2020",
+  "active": false,
+  "exercises": [
+    {
+      "title": "Map-01",
+      "route": "map/lichtung-wegweiser"
+    },
+    {
+      "title": "Buchstabenwissen",
+      "route": "schnapp-buchstabenwissen"
+    },
+    {
+      "title": "Anlaute erkennen",
+      "route": "schnapp-anlaute-erkennen"
+    },
+    {
+      "title": "Map-02",
+      "route": "map/lichtung-ziehen"
+    },
+    {
+      "title": "Wortmerken",
+      "route": "schnapp-wortmerken"
+    },
+    {
+      "title": "Zahlen und Buchstaben nachsprechen vorwärts",
+      "route": "schnapp-nachsprechen-vorwaerts"
+    },
+    {
+      "title": "Map-03",
+      "route": "map/lichtung-kobolde"
+    },
+    {
+      "title": "Map-04",
+      "route": "map/labyrinth-start"
+    },
+    {
+      "title": "Nonverbale Intelligenz",
+      "route": "schnapp-nonverbale-intelligenz-a"
+    },
+    {
+      "title": "Map-05",
+      "route": "map/labyrinth-durchziehen"
+    },
+    {
+      "title": "Map-06",
+      "route": "map/berge-start"
+    },
+    {
+      "title": "Zahlen und Buchstaben nachsprechen rückwärts",
+      "route": "schnapp-nachsprechen-rueckwaerts"
+    },
+    {
+      "title": "Map-07",
+      "route": "map/berge-stampfen"
+    },
+    {
+      "title": "Silben segmentieren",
+      "route": "schnapp-silben"
+    },
+    {
+      "title": "Map-08",
+      "route": "map/berge-bruecke"
+    },
+    {
+      "title": "Schnelles Benennen",
+      "route": "schnapp-benennen-a"
+    },
+    {
+      "title": "Map-09",
+      "route": "map/berge-steine"
+    },
+    {
+      "title": "Reimen",
+      "route": "schnapp-reimen"
+    },
+    {
+      "title": "Map-10",
+      "route": "map/berge-berggeist"
+    },
+    {
+      "title": "Grammatik - Sätze Nachsprechen",
+      "route": "schnapp-saetze-nachsprechen"
+    },
+    {
+      "title": "Map-11",
+      "route": "map/berge-schatz"
+    },
+    {
+      "title": "Passiver Wortschatz",
+      "route": "schnapp-passiver-wortschatz"
+    },
+    {
+      "title": "Map-12",
+      "route": "map/geschafft"
+    }
+  ]
+},{
+  "id": "5e87331508113100010daaa7",
+  "title": "Lernverlauf-2020",
+  "active": false,
+  "exercises": [
+    {
+      "title": "Geschichte Silben",
+      "route": "lv-map-start"
+    },
+    {
+      "title": "Silbenanzahl",
+      "route": "lv-silben"
+    },
+    {
+      "title": "Betonte Silben",
+      "route": "lv-silben2"
+    },
+    {
+      "title": "Silben Rythmus",
+      "route": "lv-silben3"
+    },
+    {
+      "title": "Silbenbaukasten",
+      "route": "lv-silben4"
+    },
+    {
+    "title": "Geschichte Lesen",
+    "route": "lv-map-lesen"
+    },
+    {
+      "title": "Lesen",
+      "configFile": "assets/lernverlauf/02-lesen/lesen-item-config.csv",
+      "route": "lv-lesen"
+    },
+    {
+      "title": "Geschichte Schreiben",
+      "route": "lv-map-schreiben"
+    },
+    {
+      "title": "Schreiben",
+      "configFile": "assets/lernverlauf/03-schreiben/default_item-config.csv",
+      "route": "lv-schreiben"
+    },
+    {
+      "title": "Ende",
+      "route": "lv-map-ende"
+    }
+]
+},{
+  "id":"5f19853309f5a30001acb5db",
+  "title": "GRAWO-2020",
+  "active": false,
+  "exercises": [
+    {
+      "title": "Passiver Wortschatz",
+      "route": "schnapp-passiver-wortschatz"
+    }
+  ]
+},{
+  "id": "5f1fde8b7e6de40001c51919",
+  "title": "GRAWO-Kurz-2020",
+  "active": false,
+  "exercises": []
+},{
+  "id": "5fc218c390bd563c749b20bb",
+  "title": "Lernverlauf Lesen-Schreiben",
+  "active": false,
+  "exercises": [
+    {
+      "title": "Anfangsgeschichte Lesen",
+      "route": "lv-map-start"
+    },
+    {
+      "title": "Lesen",
+      "configFile": "assets/lernverlauf/02-lesen/lesen-item-config.csv",
+      "route": "lv-lesen"
+    },
+    {
+      "title": "Geschichte Schreiben",
+      "route": "lv-map-schreiben"
+    },
+    {
+      "title": "Schreiben",
+      "configFile": "assets/lernverlauf/03-schreiben/default_item-config.csv",
+      "route": "lv-schreiben"
+    },
+    {
+      "title": "Ende",
+      "route": "lv-map-ende"
+    }
+  ]
+},
+{
+  "id": "5fc218d690bd563c749b20bc",
+  "title": "Lernverlauf Silben",
+  "active": false,
+  "exercises": [
+    {
+      "title": "Anfangsgeschichte Silben",
+      "route": "lv-map-start"
+    },
+    {
+      "title": "Silbenanzahl",
+      "route": "lv-silben"
+    },
+    {
+      "title": "Betonte Silben",
+      "route": "lv-silben2"
+    },
+    {
+      "title": "Silben Rythmus",
+      "route": "lv-silben3"
+    },
+    {
+      "title": "Silbenbaukasten",
+      "route": "lv-silben4"
+    },
+    {
+      "title": "Ende",
+      "route": "lv-map-ende"
+    }
+  ]
+},
+{
+  "id": "600fdfbcef638d0001b8ed9d",
+  "title": "Gralev-2021",
+  "active": false,
+  "exercises": [
+    {
+      "title": "Wortebene",
+      "route": "exercise-word"
+    },
+    {
+      "title": "Satzebene",
+      "route": "exercise-sentence"
+    },
+    {
+      "title": "Quatschgeschichten",
+      "route": "exercise-nonsense-stories"
+    },
+    {
+      "title": "Maze-Ebene",
+      "route": "exercise-text"
+    }
+  ]
+},
+{
+  "id":"603bb2e86f70dc0001f404f9",
+  "title": "ef",
+  "active": false,
+  "exercises": [
+    {
+      "title": "Feedback",
+      "route": "feedback"
+    }
+  ]
+},{
+  "id": "604f20188672410001d613a3",
+  "title": "Lernverlauf + EF",
+  "active": false,
+  "exercises": [
+    {
+      "title": "Anfangsgeschichte Lesen",
+      "route": "lv-map-start"
+    },
+    {
+      "title": "Lesen",
+      "configFile": "assets/lernverlauf/02-lesen/lesen-item-config.csv",
+      "route": "lv-lesen"
+    },
+    {
+      "title": "Geschichte Schreiben",
+      "route": "lv-map-schreiben"
+    },
+    {
+      "title": "Schreiben",
+      "configFile": "assets/lernverlauf/03-schreiben/default_item-config.csv",
+      "route": "lv-schreiben"
+    },
+    {
+      "title": "Feedback Connector",
+      "route": "feedback-connector"
+    },
+    {
+      "title": "Feedback",
+      "route": "feedback"
+    },
+    {
+      "title": "Ende",
+      "route": "lv-map-ende"
+    }
+  ]
+},
+{
+  "id":"abc",
+  "title": "test",
+  "active": false,
+  "exercises": [
+    {
+      "title": "Lesen Nominal",
+      "configFile": "assets/lernverlauf/02-lesen/NGr_lesen_passiv.csv",
+      "route": "lv-lesen-nominal"
+    },
+    {
+      "title": "Lesen",
+      "configFile": "assets/lernverlauf/02-lesen/lesen-item-config.csv",
+      "route": "lv-lesen"
+    }
+  ]
+}]

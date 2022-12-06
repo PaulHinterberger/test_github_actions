@@ -1,0 +1,12 @@
+<ion-content class="examinerScreenBorder" padding>
+    <div class="center">
+      <img alt="SCHNAPP_Logo" src="assets/picture/DracheStart.png">
+      <h1>Kapitel {{this.data.result?.results.length}}a abgeschlossen!</h1>
+    </div>
+
+    <div class="continue">
+        <ion-button (click)="nextPage()" color="success" size="large" style="float:right">
+            <ion-icon name="arrow-forward"></ion-icon>
+        </ion-button>
+    </div>
+</ion-content>

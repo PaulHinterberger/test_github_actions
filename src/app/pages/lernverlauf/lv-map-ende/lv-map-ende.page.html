@@ -1,0 +1,35 @@
+<ion-content [class]="mapCssClass" padding>
+     <ion-button [hidden]="!debugMode.checkDebugMode()" color="light"   (click)="goToNextPage()" 
+     style=" position: absolute; top: 3%; right: 20%; margin-right: 1%"> Skip Map</ion-button>
+
+  <img src="assets/lernverlauf/waldschule/baer.png"
+       style="position: absolute;width: 400px; height: auto; left: 7%; top: 10%;">
+
+  <img src="assets/lernverlauf/waldschule/eule.png"
+       style="position: absolute;width: 800px; height: auto; left: 38%; top: 24%; ">
+
+  <img src="assets/lernverlauf/waldschule/fuchs.png"
+       style="position: absolute;width: 1000px; height: auto; left: 30%; top: 10%;">
+
+  <img src="assets/lernverlauf/waldschule/hase.png"
+       style="position: absolute;width: 1000px; height: auto; left: 30%; top: 10%;">
+
+  <img src="assets/lernverlauf/waldschule/luchs_klein.png"
+       style="position: absolute;width: 900px; height: auto; left: 33%; top: 16%;">
+
+  <img src="assets/lernverlauf/waldschule/reh.png"
+       style="position: absolute;width: 900px; height: auto; left: 29%; top: 30%; ">
+
+  <img src="assets/lernverlauf/waldschule/wolf.png"
+       style="position: absolute;width: 500px; height: auto; left: 4%; top: 0%; ">
+
+  <img src="assets/animations/Drache.gif"
+       style="position: absolute;width: 500px; height: auto; left: 20%; top: 55%; ">
+
+  <div class="continue" style="position: absolute; left: 10%">
+    <ion-button fill="clear" [hidden]="!arrowVisible" class="button button-clear" (click)="goToNextPage()"  style="position: absolute; bottom: 60%;
+         left: 70%; height: 80px; z-index: 10">
+      <ion-img  id="holz" style="height: 150px; width: auto;" src="assets/animations/holzmitpfeil1.png"></ion-img>
+    </ion-button>
+  </div>
+</ion-content>

@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title style="width: 70%;margin-top: 5px">Kapitel {{exercise.number}}: {{exercise.title}}</ion-title>
+    <ion-title style="font-size: 75%;width: 50%;margin-top: 5px">{{headline}}</ion-title>
+    <ion-title style="color: darkred; font-size: 75%;margin-top: 5px">Bitte lesen Sie die Items dem Kind laut vor und
+      zeigen Sie mit Fingerbewegungen in der Luft von links nach rechts mit.
+    </ion-title>
+    <ion-title style="color: darkred; font-size: 75%;margin-top: 5px"> Danach fordern Sie das Kind zum
+      Rückwärtswiederholen auf, indem Sie nun in die umgekehrte Richtung in der Luft „hüpfen“.
+    </ion-title>
+    <ion-title style="color: darkred; font-size: 75%;margin-top: 5px; margin-bottom: 5px"> Markieren Sie richtige Aufgaben.
+    </ion-title>
+    <ion-button [hidden]="!debugMode.checkDebugMode()" color="light" (click)="skipExercise()"  size="medium" style=" position: absolute; top: 20%; right: 40%; margin-right: 1%"> Skip Exercise</ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="examinerScreenBorder" padding>
+
+  <app-note [exercise]=exercise [isCardActive]=isCardActive></app-note>
+
+
+  <div class="center">
+    <mat-grid-list [cols]="1" id="grid" rowHeight="fit">
+            <span *ngFor="let example of currentExamples,let i = index">
+                <mat-grid-tile>
+                    <ion-button (click)="setAsDone(i)" [color]="currentExamplesColors[i]"
+                                class="buttonCharacters"><h1>{{currentExamples[i]}}</h1>
+                    </ion-button>
+                </mat-grid-tile>
+            </span>
+    </mat-grid-list>
+  </div>
+  <div class="continue">
+    <div
+      style="color: darkred;background-color: white; font-size: 75%;padding: 15px;text-align: center; bottom: 3%; left: 22%; position: absolute">
+      Achtung:<br>Manche Kinder verstehen diese Instruktion nicht,<br>bei Bedarf wiederholen Sie selbst die Aufgabe und
+      brechen danach ab (durch Weiterklicken).
+    </div>
+    <app-last-page-button (Clicked)="lastPage()"[Visible]="counter > 1 && highestCount === counter"></app-last-page-button>
+    <app-next-page-button (Clicked)="nextPage()"></app-next-page-button>
+  </div>
+</ion-content>

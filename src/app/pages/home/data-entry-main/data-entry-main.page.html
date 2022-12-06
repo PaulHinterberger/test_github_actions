@@ -1,0 +1,164 @@
+<ion-content class="examinerScreenBorder" padding>
+    <h1 *ngIf="examinerNameFocus === false && noteFocus === false" >Datenblatt {{firstname}} {{lastname}}</h1>
+    <mat-grid-list cols="2" rowHeight="fit" [ngClass]="{'grid': true, 'examinerFocus': examinerNameFocus, 'noteFocus': noteFocus}">
+        <mat-grid-tile>
+            <mat-form-field class="input-col-width">
+                <input [(ngModel)]="firstname" matInput placeholder="Vorname">
+            </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+            <mat-form-field class="input-col-width">
+                <input [(ngModel)]="lastname" matInput placeholder="Nachname">
+            </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+            <mat-form-field class="input-col-width">
+                <input [matDatepicker]="birthdatePicker" [value]="birthdateControl.value"
+                       (dateChange) = "setNewBirthdate($event)" disabled
+                       matInput placeholder="Geburtsdatum" [(ngModel)]="birthdate">
+                <mat-datepicker-toggle [for]="birthdatePicker" matSuffix></mat-datepicker-toggle>
+                <mat-datepicker #birthdatePicker disabled="false"></mat-datepicker>
+            </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+            <mat-form-field class="input-col-width">
+                <mat-select [(ngModel)]="nativeLanguage" placeholder="Muttersprache">
+                    <mat-option *ngFor="let language of languages" [value]="language.value">
+                        {{language.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+            <mat-form-field class="input-col-width">
+                <mat-select [(ngModel)]="gender" placeholder="Geschlecht">
+                    <mat-option value="m">männlich</mat-option>
+                    <mat-option value="w">weiblich</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+            <mat-form-field class="input-col-width">
+                <mat-label>Bildungseinrichtung</mat-label>
+                <mat-select [(ngModel)]="school">
+                    <mat-option *ngFor="let school of dataService.schools" [value]="school.name">
+                        {{school.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <mat-form-field class="input-col-width">
+                <input matInput [(ngModel)]="className" placeholder="Klasse"/>
+                    </mat-form-field>
+                </mat-grid-tile>
+
+
+
+
+        <mat-grid-tile rowspan="3">
+            <mat-grid-list cols="2" id="data-grid" rowHeight="fit">
+                <mat-grid-tile>
+                    <span style="right: 10%;position: absolute;">a.o. Status:</span>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <section style="position: absolute;left: 10%">
+                        <mat-radio-group [(ngModel)]="aoAnswer">
+                            <mat-radio-button value="yes">Ja</mat-radio-button>
+                            <mat-radio-button style="margin-left: 50%;position: absolute" value="no">Nein
+                            </mat-radio-button>
+                        </mat-radio-group>
+                    </section>
+                </mat-grid-tile>
+
+                <mat-grid-tile>
+                    <span style="right: 10%;position: absolute;">SPF Status:</span>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <section style="position: absolute;left: 10%">
+                        <mat-radio-group [(ngModel)]="spfAnswer">
+                            <mat-radio-button (click)="onSpf(true)" value="yes">Ja</mat-radio-button>
+                            <mat-radio-button (click)="onSpf(false)" style="margin-left: 50%;position: absolute"
+                                              value="no">Nein
+                            </mat-radio-button>
+                        </mat-radio-group>
+                    </section>
+                </mat-grid-tile>
+
+                <mat-grid-tile>
+                    <span style="right: 10%;position: absolute;">Aktuell Vorschule:</span>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <section style="position: absolute;left: 10%">
+                        <mat-radio-group [(ngModel)]="currentlyPreschoolAnswer">
+                            <mat-radio-button value="yes">Ja</mat-radio-button>
+                            <mat-radio-button style="margin-left: 50%;position: absolute" value="no">Nein
+                            </mat-radio-button>
+                        </mat-radio-group>
+                    </section>
+                </mat-grid-tile>
+
+                <mat-grid-tile>
+                    <span style="right: 10%;position: absolute;">Bereits Vorschule:</span>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <section style="position: absolute;left: 10%">
+                        <mat-radio-group [(ngModel)]="alreadyPreschoolAnswer">
+                            <mat-radio-button value="yes">Ja</mat-radio-button>
+                            <mat-radio-button style="margin-left: 50%;position: absolute" value="no">Nein
+                            </mat-radio-button>
+                        </mat-radio-group>
+                    </section>
+                </mat-grid-tile>
+            </mat-grid-list>
+        </mat-grid-tile>
+        <mat-grid-tile rowspan="2">
+            <mat-form-field class="input-col-width" style="height: 100%;">
+                <textarea (focus)="noteFocus = true" (blur)="noteFocus = false" 
+                            [(ngModel)]="note"
+                            matInput
+                            placeholder="Allgemeine Notiz"
+                            rows="10" style="background: white; width: 100%; height: 100%;"
+                            >
+                </textarea>
+            </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile [colspan]=2>
+            <mat-form-field style="position: absolute;left:15%;right:15%;width:70% ">
+                <input [(ngModel)]="examinerName" matInput placeholder="Vor- und Nachname des Untersuchers" (focus)="examinerNameFocus = true" (blur)="examinerNameFocus = false">
+            </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+            <mat-form-field class="input-col-width">
+                <input [matDatepicker]="dateTodayPicker" [value]="dateTodayControl.value" 
+                        (dateChange) = "setNewTestdate($event)" disabled
+                       matInput placeholder="Untersuchungsdatum" [(ngModel)]="testdate">
+                <mat-datepicker-toggle [for]="dateTodayPicker" matSuffix></mat-datepicker-toggle>
+                <mat-datepicker #dateTodayPicker disabled="false"></mat-datepicker>
+            </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+            <!-- What does  !school.includes('null') do? removed it because it caused errors-->
+          <ion-button [disabled]="!(
+          firstname.length !== 0 &&
+          lastname.length !== 0 &&
+          !nativeLanguage.includes('null') &&
+          !gender.includes('null') &&
+          !aoAnswer.includes('null') &&
+          !spfAnswer.includes('null') &&
+          !currentlyPreschoolAnswer.includes('null') &&
+          !alreadyPreschoolAnswer.includes('null') &&
+          examinerName.length !== 0 &&
+          className.length !== 0  &&
+          school.length !== 0)" (click)="nextPage()" color="success" size="large">Weiter</ion-button>
+        </mat-grid-tile>
+    </mat-grid-list>
+</ion-content>

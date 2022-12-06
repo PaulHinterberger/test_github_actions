@@ -1,0 +1,26 @@
+<!-- <ion-header>
+  <ion-toolbar>
+      <ion-title style="width: 50%; margin-top: 5px">{{ playAudio() }}</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content class="childScreenBorder" padding>
+  <div class="center">
+    <img alt="SCHNAPP_Logo" src="assets/picture/DracheThumbsUp_komprimiert.png"
+         style="position: absolute; left: 210px; height: 600px;z-index: 1">
+    <!-- <img src="assets/picture/sprechblase einverstanden.png" 
+      style="position: absolute; left: 570px; height: 200px;z-index: 1"> -->
+  </div>
+  <!-- <div>
+    <ion-button (click)="playAudio()" color="warning" size="large" style="margin: 40px; margin-top: 450px; float: right;">
+      <ion-icon [name]="getPlayIcon()" style="font-size: 250%"></ion-icon>
+    </ion-button>
+  </div> -->
+  <!-- <div>
+    <p style="color: white; font-size: 80px; position: absolute; left: 210px; bottom: 150px;">{{text}}</p>
+  </div> -->
+  <div class="continue">
+    <ion-button color="success" size="large" 
+    style="float: right; font-size: 70px; margin-bottom: 300px; margin-right: 250px; height: 100px; width: 100px;" (click)="nextPage()">JA</ion-button>
+  </div>
+</ion-content>

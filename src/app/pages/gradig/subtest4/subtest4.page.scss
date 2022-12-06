@@ -1,0 +1,45 @@
+@import '../../gralev/exercise.scss';
+select#iconselect option[value="stern"] { background-image: url(../../../../assets/gradig/subtest4/stern.png);}
+select#iconselect option[value="raute"] { background-image: url(../../../../assets/gradig/subtest4/raute.png);}
+select#iconselect option[value="kreis"] { background-image: url(../../../../assets/gradig/subtest4/kreis.png);}
+.text-ion-button {
+    width: 150%;
+    text-transform: none;
+}
+/**@import '~@angular/material/theming';
+$custom-typography: mat-typography-config(
+        $font-family: 'Raleway'
+);
+@include mat-core($custom-typography);
+**/
+//@font-face {
+//  font-family: 'druckschrift';
+//  src: url(/assets/lernverlauf/02-lesen/DRUCKSCH_07.ttf) format('ttf');
+//  font-weight: normal;
+//  font-style: normal;
+//}
+//
+
+.correct {
+  border: 5px solid green;;
+  background-color:rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  //background: white;
+}
+
+.notCorrect {
+  border: 5px solid red;;
+  background-color:rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  //background: white;
+}
+
+.grid {
+  height: 90%;
+  position: absolute;
+  // margin-left: 20%;
+  top: 50%;
+  width: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

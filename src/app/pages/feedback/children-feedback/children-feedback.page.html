@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar *ngIf="instruction===0">
+      <ion-title style="width: 50%;margin-top: 5px">{{exercise.title}}</ion-title>
+      <ion-title style="font-size: 100%;width: 100%;margin-top: 5px; margin-bottom: 5px">
+        Verwende die rote Ampel für „nein“, grün für „ja“ und orange für „manchmal“. 
+        Hör gut zu!
+      </ion-title>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+
+  <div class="center">
+      <mat-grid-list class="grid" cols="1" rowHeight="fit">
+
+      <div *ngIf="instruction===1">
+        <mat-grid-tile>
+          <div style="font-size: 250%;">
+            Ich stelle dir heute zwei Kinder vor, Max und Lara. Sie sind 8 Jahre und gehen in die 2. Klasse. Du hörst gleich kurze Geschichten aus ihrem Schulleben und ich möchte dann von dir wissen, ob das bei dir auch so ist?
+            <br><br>Verwende die rote Ampel für „nein“, grün für „ja“ und orange für „manchmal“. 
+            <br><br>Hör gut zu!
+          </div>
+        </mat-grid-tile>
+      </div>
+      <div *ngIf="instruction===0">
+          <mat-grid-tile>
+              <div style="font-size: 250%;">
+                  {{words[wordCount].question}}
+              </div>
+          </mat-grid-tile>
+
+          <mat-grid-tile>
+            <!-- <div style="background-color: black; border: black 2px solid; border-radius: 10px;"> -->
+            <span style="width: 20%; height: 90%; padding: 6%; background-color: black; border: black 2px solid; border-radius: 10px;">
+              <button [ngClass]="buttoncolor[0]" (click)="save(0)">
+                <ion-icon style="font-size: 250%; padding: 5px" name="md-sad"></ion-icon>
+              </button>
+              <br>
+              <button [ngClass]="buttoncolor[1]"
+                (click)="save(1)">
+                  <img src="assets/icons/emoticon-neutral-outline.png" style="height: 3rem;width: 3rem;padding: 5px"/>
+              </button>
+              <br>
+              <button [ngClass]="buttoncolor[2]" (click)="save(2)">
+                <ion-icon style="font-size: 250%; padding: 5px" name="md-happy"></ion-icon>
+              </button>
+            </span>
+            <!-- </div> -->
+            <!-- <div *ngIf="showWords"
+                 (click)="selected=0"
+                 style="font-size: 300%; color: #4b7fd9;">
+                {{words[wordCount].question}}
+            </div> -->
+          </mat-grid-tile>
+        </div>
+      </mat-grid-list>
+  </div>
+  <div class="continue">
+  <ion-button class="imgage" (click)="playAudio()" color="success" size="large"
+      style="float: left;">
+    <ion-icon [name]="getPlayIcon()" style="font-size: 250%"></ion-icon>
+  </ion-button>
+
+    <ion-button size="large" color="success" style="float: right;" (click)="nextAnswer()" [disabled]="isNextDisabled">
+      <ion-icon style="font-size: 250%;" name="arrow-forward"></ion-icon>
+    </ion-button>
+  </div>
+
+
+</ion-content>
+
