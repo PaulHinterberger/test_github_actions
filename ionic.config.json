@@ -1,8 +1,0 @@
-{
-  "name": "schnapp",
-  "integrations": {
-    "cordova": {},
-    "capacitor": {}
-  },
-  "type": "angular"
-}
