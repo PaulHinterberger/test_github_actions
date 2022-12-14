@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build:prod": "ng build --configuration production --base-href https://PaulHinterberger.github.io/angular-github-actions/",
+    "build:prod": "ng build --configuration production --base-href https://PaulHinterberger.github.io/test_github_actions/",
     "test:headless": "ng test --watch=false --browsers=ChromeHeadless",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
