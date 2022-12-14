@@ -26,10 +26,10 @@ jobs:
     - name: Build
       run: npm run build:prod
 
-    # - name: Deploy
-    #   if: success()
-    #   uses: PaulHinterberger/test_github_actions@main
-    #   with:
-    #     github_token: ${{ secrets.GITHUB_TOKEN }}
-    #     publish_dir: dist/angular-github-test
-    #     enable_jekyll: true
+    - name: Deploy
+      if: success()
+      uses: PaulHinterberger/test_github_actions@main
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: dist/angular-github-test
+        enable_jekyll: true
